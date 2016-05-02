@@ -18,7 +18,7 @@ if(!isset($user_check))
 }
 ?>
 <?php
-
+            ini_set('session.coockie_httponly',true);
             $_SESSION['username'] = $username; // Initializing Session
             $_SESSION["userid"] = $row[0];//user id assigned to session global variable
             $_SESSION["timeout"] = time();//get session time: protects against session highjacking by logging off users or preventing users from access in time frame
