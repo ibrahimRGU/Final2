@@ -50,7 +50,7 @@ if(isset($_POST["submit"]))
                 //session_unset();
                 //session_destroy();
                 // Redirecting To Other Page
-              //  header("location: photos.php");
+              header("location: photos.php");
        //
         }else
         {
