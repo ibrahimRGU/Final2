@@ -47,13 +47,14 @@ if(isset($_POST["submit"]))
                 $_SESSION['last_ip'] = $_SERVER ['REMOTE_ADDR'];
             }
             if ($_SESSION['last_ip']!==$_SERVER['REMOTE_ADDR'])
-                //session_unset();
-                //session_destroy();
+                
                 // Redirecting To Other Page
               header("location: photos.php");
        //
         }else
         {
+                session_unset();
+                session_destroy();
             $error = "Incorrect username or password.";
         }
     }
