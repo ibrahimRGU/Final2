@@ -23,7 +23,7 @@ header("Location: index.php");
             $_SESSION["userid"] = $row[0];//user id assigned to session global variable
             $_SESSION["timeout"] = time();//get session time: protects against session highjacking by logging off users or preventing users from access in time frame
             $_SESSION["ip"] = $_SERVER['REMOTE_ADDR'];// session highjacking:on login, the
-            header("location: photos.php"); // Redirecting To Other Page
+             
 
              if(isset($_SESSION['last_ip'])===false){
                 $_SESSION['last_ip'] = $_SERVER ['REMOTE_ADDR'];
@@ -31,7 +31,8 @@ header("Location: index.php");
             if ($_SESSION['last_ip']!==$_SERVER['REMOTE_ADDR'])
                 session_unset();
                 session_destroy();
-                header("Location: login.php");
+                // Redirecting To Other Page
+                header("location: photos.php");
                 
 
 
