@@ -4,7 +4,22 @@
 	if ((isset($_SESSION['username']) != '')) 
 	{
 		header('Location: photos.php');
-	}	
+		//SESSION TIMEOUT TWO MINUTES
+	if(isset($_SESSION['last-activity']) && time() - $_SESSION['last-activity'] > 120) {
+    // session inactive more than 2 min
+    header('location: /logout.php?timeout=1');
+}
+
+$_SESSION['last-activity'] = time(); // update last activity time stamp
+
+if(time() - $_SESSION['created'] > 120) {
+    // session started more than 10 min ago
+    session_regenerate_id(true); // change session id and invalidate old session
+    $_SESSION['created'] = time(); // update creation time
+}
+		
+		
+	}	//END OF SEESION CODES
 ?>
 
 <!doctype html>
