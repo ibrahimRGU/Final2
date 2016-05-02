@@ -14,7 +14,7 @@ if($row['admin']==1){
 
 if(!isset($user_check))
 {
-header("Location: index.php");
+//header("Location: index.php");
 }
 ?>
 <?php
