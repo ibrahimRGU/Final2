@@ -40,7 +40,7 @@ if(isset($_POST["submit"]))
             $_SESSION["userid"] = $row[0];//user id assigned to session global variable
             $_SESSION["timeout"] = time();//get session time: protects against session highjacking by logging off users or preventing users from access in time frame
             $_SESSION["ip"] = $_SERVER['REMOTE_ADDR'];// session highjacking:on login, the
-            //header("location: photos.php"); // Redirecting To Other Page
+            header("location: photos.php"); // Redirecting To Other Page
            
 
              if(isset($_SESSION['last_ip'])===false){
@@ -50,7 +50,7 @@ if(isset($_POST["submit"]))
                 session_unset();
                 session_destroy();
                 // Redirecting To Other Page
-                header("location: photos.php");
+              //  header("location: photos.php");
        //
         }else
         {
