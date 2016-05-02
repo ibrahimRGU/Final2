@@ -37,7 +37,7 @@ if(isset($_POST["submit"]))
         if( ($row=$result->fetch_row()))
         {
             $_SESSION['username'] = $username; // Initializing Session
-           // $_SESSION["userid"] = $row[0];//user id assigned to session global variable
+           $_SESSION["userid"] = $row[0];//user id assigned to session global variable
             $_SESSION["timeout"] = time();//get session time: protects against session highjacking by logging off users or preventing users from access in time frame
             $_SESSION["ip"] = $_SERVER['REMOTE_ADDR'];// session highjacking:on login, the
             header("location: photos.php"); // Redirecting To Other Page
@@ -47,8 +47,8 @@ if(isset($_POST["submit"]))
                 $_SESSION['last_ip'] = $_SERVER ['REMOTE_ADDR'];
             }
             if ($_SESSION['last_ip']!==$_SERVER['REMOTE_ADDR'])
-                session_unset();
-                session_destroy();
+                //session_unset();
+                //session_destroy();
                 // Redirecting To Other Page
               //  header("location: photos.php");
        //
